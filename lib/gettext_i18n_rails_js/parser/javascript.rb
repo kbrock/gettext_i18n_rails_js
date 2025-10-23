@@ -24,8 +24,6 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-require "gettext/tools/xgettext"
-require "gettext_i18n_rails/gettext_hooks"
 require_relative "base"
 
 module GettextI18nRailsJs
