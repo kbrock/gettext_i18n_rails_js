@@ -24,9 +24,6 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-gem "rails", version: ">= 3.2.0"
-gem "gettext_i18n_rails", version: ">= 0.7.1"
-
 require "logger"
 require "rails"
 require "gettext_i18n_rails"

@@ -24,9 +24,6 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-gem "gettext", version: ">= 3.0.2"
-gem "po_to_json", version: ">= 2.0.0"
-
 require "gettext"
 require "po_to_json"
 
