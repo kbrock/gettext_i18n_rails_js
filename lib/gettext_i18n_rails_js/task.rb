@@ -41,10 +41,12 @@ module GettextI18nRailsJs
 
     protected
 
+    # overridden
     def destination(lang)
       path = output_path.join(lang)
       path.mkpath
 
+      # we are writing to path/lang.json (vs path/lang/{domain}.js)
       path.join("#{domain}.js").open("w") do |f|
         f.rewind
         f.write yield
@@ -95,13 +97,17 @@ module GettextI18nRailsJs
 
       ::Pathname.glob(
         ::File.join(
-          locale_path,
+          locale_path, # FastGettext.translation_repositories[text_domain].instance_variable_get(:@options)[:path] rescue nil
           "**",
           "*.po"
         )
       )
     end
 
+    # override:
+    #       ::ManageIQ::UI::Classic::Engine.root.join('app/javascript/oldjs/locale')
+    # NOTE: not my engine, but ui_classic engine
+    # still think we should set config.output_path
     def output_path
       engine_root.join(
         GettextI18nRailsJs.config.output_path
@@ -116,7 +122,11 @@ module GettextI18nRailsJs
       GettextI18nRailsJs.config.domain
     end
 
+    # override
+    # generate the index.js here
+    # using a webpack require.
     def print_footer
+      # we are
       puts
       puts "All files created, make sure they are being added to your assets."
       puts "If they are not, you can add them with this line (configurable):"

@@ -109,7 +109,7 @@ describe GettextI18nRailsJs::Parser::Javascript do
         expect(parser.parse(path, [])).to(
           eq(
             [
-              ["xxxx\\n\\tfoo", "#{path}:1"]
+              ["xxxx\n\tfoo", "#{path}:1"]
             ]
           )
         )
@@ -125,7 +125,7 @@ describe GettextI18nRailsJs::Parser::Javascript do
         expect(parser.parse(path, [])).to(
           eq(
             [
-              ["xxxx\\n\\tfoo", "#{path}:1"]
+              ["xxxx\n\tfoo", "#{path}:1"]
             ]
           )
         )
@@ -141,7 +141,7 @@ describe GettextI18nRailsJs::Parser::Javascript do
         expect(parser.parse(path, [])).to(
           eq(
             [
-              ["xxxx\\n\\tfoo", "#{path}:1"]
+              ["xxxx\n\tfoo", "#{path}:1"]
             ]
           )
         )
@@ -330,7 +330,7 @@ describe GettextI18nRailsJs::Parser::Javascript do
       expect(parsed_example).to(
         eq(
           [
-            ["Hello\\nBuddy", "#{example}:7"],
+            ["Hello\nBuddy", "#{example}:7"],
             ["json", "#{example}:18"],
             ["item\u0000items", "#{example}:19"]
           ]
@@ -380,7 +380,7 @@ describe GettextI18nRailsJs::Parser::Javascript do
             ["Hello {yourname}", "#{example}:6"],
             ["new-trans", "#{example}:9"],
             ["namespaced\004trans", "#{example}:10"],
-            ["Hello\\nBuddy", "#{example}:11"]
+            ["Hello\nBuddy", "#{example}:11"]
           ]
         )
       )
@@ -430,7 +430,7 @@ describe GettextI18nRailsJs::Parser::Javascript do
             ["Hello {yourname}", "#{example}:5"],
             ["new-trans", "#{example}:8"],
             ["namespaced\004trans", "#{example}:9"],
-            ["Hello\\nBuddy", "#{example}:11"],
+            ["Hello\nBuddy", "#{example}:11"],
             ["Multi-line", "#{example}:14"],
             ["Your Boards", "#{example}:17"]
           ]

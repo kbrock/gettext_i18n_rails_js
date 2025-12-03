@@ -81,7 +81,8 @@ module GettextI18nRailsJs
             /('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*`)/
           ).collect do |match|
             contents = match.first[1..-2]
-            contents.gsub("\\'", "'").gsub("\\`", "`").gsub("\\\"", "\"")
+            contents = contents.gsub(/\\(['`"])/, "\\1")
+            contents.gsub("\\n", "\n").gsub("\\t", "\t")
           end.join(separator_for(function))
 
           next if key == ""
